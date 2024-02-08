@@ -1,8 +1,19 @@
 ### Technology choices:
-UI: React / Typescript / styled-components /// speed.... use component lib?
-API : REST(Express) vs graphQL
-DB: MongoDB vs RDB
-Models: Recipe, Curation, User?
+#### UI:
+ - React
+ - Typescript
+ - styled-components
+ - use component lib? - final if time permits so i can do before and after quickly
+#### API : REST(Express) vs graphQL
+ - node (bun or deno if time permits)
+ - express vs ~~graphql~~ ......... REST is fast and easy...
+
+#### DB:
+- MongoDB vs ~~RDB~~ see: [DB](./DB.mb) for more details on this call
+#### Models:
+- Recipe
+- Curation
+- User?  (implied but not required by test)
 
 ### User Stories
 - View all the recipes in my 'favorites' library.
@@ -23,47 +34,7 @@ horizontal list with title and its associated recipes
 - Implement a feature on the My Favorites page that enables users to add a recipe to a
 new or existing list.
 
-RDB:
-Curation
- - id
- - name
- - description
- - user_id
-CurationRecipes
- - user_id
- - curation_id
- - recipe_id
- Recipes
- - name
- - description
- - url
- ...
- Pro:
- - traditional
- - expected?
- - challenge has a relational list of lists build in challenge
- Con:
- - time
- - familiarity
-
- Mongo:
- Curation
- - id
- - name
- - description
- - user_id
- - recipes:
-    - id
-
- Recipes
- - name
- - description
- - url
- ...
-
-Pro:
- Easy Model / fast
- Familiar
- 1 less table/collection
-Cons
-- requires aggregation n * m db $lookup => $group => sort? scalability?
+#### Run Project
+```zsh
+docker-compose up --build -d
+```
