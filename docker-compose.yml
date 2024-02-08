@@ -2,17 +2,18 @@ networks:
   internal-network:
     name: internal-network
 services:
-  # api:
-  #   build: ./api
-  #   ports:
-  #     - "80:3000"
-  #   depends_on:
-  #     - db
-  #   environment:
-  #     # - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
-  #     - PORT=3000
-  #   networks:
-  #     - internal-network
+  # ui:
+  api:
+    build: ./api
+    ports:
+      - "80:3000"
+    depends_on:
+      - mongo
+    environment:
+      MONGODB_URL: mongodb://root:example@mongo:27017/
+      PORT: 3000
+    networks:
+      - internal-network
   # db:
   #   image: postgres
   #   ports:
@@ -30,7 +31,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       # MONGO_INITDB_DATABASE: recipes
-    volumes:
+    # volumes:
     #  - ./db:/docker-entrypoint-initdb.d/:ro
     #  - ./data:/data/db
     networks:

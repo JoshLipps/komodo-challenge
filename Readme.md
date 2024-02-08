@@ -37,11 +37,11 @@ docker-compose up --build -d
 ```
 
 ### TODO
-- [ ] docker-compose setup
-- [ ] system design / planing
-- [ ] load db
-- [ ] API - initial (express + ts )setup
+- [*] docker-compose setup
+- [*] system design / planing
+- [*] API - initial (express + ts )setup
 - [ ] API - DB setup
+- [ ] load db -  api endpoint?
 - [ ] API - recipe endpoint
 - [ ] API - curation list endpoint
 - [ ] API - add curation to list endpoint
