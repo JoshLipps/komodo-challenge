@@ -21,8 +21,8 @@
 - Display user’s curated recipe lists.
 ### Backend
 - Develop an API endpoint that provides the list of recipes for the user library. - GET /recipe
-- Develop an API endpoint to add a recipe to a new or existing list - PUT /list/:id/recipe/:recipe_id
-- Develop an API endpoint to fetch a list of curations - GET /list
+- Develop an API endpoint to add a recipe to a new or existing list - PUT /curation/:id/recipe/:recipe_id
+- Develop an API endpoint to fetch a list of curations - GET /curation
 
 ### Frontend
 - Build My Favorites page: to browse all the recipes of a user
