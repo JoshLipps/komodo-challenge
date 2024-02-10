@@ -5,6 +5,7 @@
     "module": "ES2022",
     "moduleResolution": "node",
     "target": "ES2022",
-    "outDir": "./dist"                            /* Skip type checking all .d.ts files. */
+    "outDir": "./dist",
+    "resolveJsonModule": true
   }
 }
