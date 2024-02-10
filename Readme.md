@@ -40,7 +40,7 @@ docker-compose up --build -d
 - [*] docker-compose setup
 - [*] system design / planing
 - [*] API - initial (express + ts )setup
-- [ ] API - DB setup
+- [*] API - DB setup
 - [ ] load db -  api endpoint?
 - [ ] API - recipe endpoint
 - [ ] API - curation list endpoint
@@ -49,3 +49,4 @@ docker-compose up --build -d
 - [ ] UI - Fav page
 - [ ] UI - My Lists Page
 - [ ] UI - Add Recipe to List feature
+- [ ] Unit tests
