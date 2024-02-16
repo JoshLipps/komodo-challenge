@@ -49,7 +49,7 @@ http://localhost
 - [*] API - recipe endpoint
 - [*] API - curation list endpoint
 - [*] API - add curation to list endpoint
-- [ ] UI - initial setup (react / styled components)
+- [*] UI - initial setup (react / styled components)
 - [ ] UI - Fav page
 - [ ] UI - My Lists Page
 - [ ] UI - Add Recipe to List feature
@@ -59,25 +59,25 @@ http://localhost
 #### Sample Curls
 Load recipes
 ```
-curl -X POST localhost/recipe -H "Content-Type: application/json" -d '{}'
+curl -X POST localhost/api/recipe -H "Content-Type: application/json" -d '{}'
 ```
 get recipe
 ```
-curl localhost/recipe -H "Content-Type: application/json"
+curl localhost/api/recipe -H "Content-Type: application/json"
 ```
 
 create curation
 ```
 
-curl -X POST localhost/curation -H "Content-Type: application/json" -d '{"Name":"Josh List", "Recipe_IDs": ["65cf26a9ed3a1c4b9aefef77"]}'
+curl -X POST localhost/api/curation -H "Content-Type: application/json" -d '{"Name":"Josh List", "Recipe_IDs": ["65cf26a9ed3a1c4b9aefef77"]}'
 ```
 
 get curation
 ```
-curl localhost/curation -H "Content-Type: application/json"
+curl localhost/api/curation -H "Content-Type: application/json"
 ```
 
 add recipe to curation
 ```
-curl -X PUT localhost/curation/65cf2730ed3a1c4b9aeff5c9/recipe/65cf26a9ed3a1c4b9aefef77 -H "Content-Type: application/json"
+curl -X PUT localhost/api/curation/65cf2730ed3a1c4b9aeff5c9/recipe/65cf26a9ed3a1c4b9aefef77 -H "Content-Type: application/json"
 ```
