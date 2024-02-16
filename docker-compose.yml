@@ -2,12 +2,23 @@ networks:
   internal-network:
     name: internal-network
 services:
-  # ui:
+  ui:
+    build: ./ui
+    container_name: ui
+    networks:
+      - internal-network
+    restart: always
+    volumes:
+      - ./ui/nginx/:/etc/nginx/conf.d
+    ports:
+      - '80:80'
+    command: /bin/sh -c "nginx -g 'daemon off;'"
   api:
+    container_name: api
     build: ./api
     restart: always
-    ports:
-      - 80:5000
+    # ports:
+    #   - 80:5000
     depends_on:
       - mongo
     environment:
@@ -17,16 +28,6 @@ services:
       CURATION_COLLECTION_NAME: ${CURATION_COLLECTION_NAME:-curation},
     networks:
       - internal-network
-  # db:
-  #   image: postgres
-  #   ports:
-  #     - "5432:5432"
-  #   environment:
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=postgres
-  #     - POSTGRES_DB=postgres
-  #   networks:
-  #     - internal-network
   mongo:
     container_name: mongo
     image: mongo
