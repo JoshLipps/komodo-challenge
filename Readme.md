@@ -34,7 +34,11 @@ new or existing list.
 #### Run Project
 ```zsh
 docker-compose up --build -d
+# load recipes kinda hack for now for ease of initialization
+curl -X POST localhost/recipe -H "Content-Type: application/json" -d '{}'
+
 ```
+http://localhost
 
 ### TODO
 - [*] docker-compose setup
