@@ -41,12 +41,39 @@ docker-compose up --build -d
 - [*] system design / planing
 - [*] API - initial (express + ts )setup
 - [*] API - DB setup
-- [ ] load db -  api endpoint?
-- [ ] API - recipe endpoint
-- [ ] API - curation list endpoint
-- [ ] API - add curation to list endpoint
+- [*] load db -  api endpoint?
+- [*] API - recipe endpoint
+- [*] API - curation list endpoint
+- [*] API - add curation to list endpoint
 - [ ] UI - initial setup (react / styled components)
 - [ ] UI - Fav page
 - [ ] UI - My Lists Page
 - [ ] UI - Add Recipe to List feature
 - [ ] Unit tests
+
+
+#### Sample Curls
+Load recipes
+```
+curl -X POST localhost/recipe -H "Content-Type: application/json" -d '{}'
+```
+get recipe
+```
+curl localhost/recipe -H "Content-Type: application/json"
+```
+
+create curation
+```
+
+curl -X POST localhost/curation -H "Content-Type: application/json" -d '{"Name":"Josh List", "Recipe_IDs": ["65cf26a9ed3a1c4b9aefef77"]}'
+```
+
+get curation
+```
+curl localhost/curation -H "Content-Type: application/json"
+```
+
+add recipe to curation
+```
+curl -X PUT localhost/curation/65cf2730ed3a1c4b9aeff5c9/recipe/65cf26a9ed3a1c4b9aefef77 -H "Content-Type: application/json"
+```

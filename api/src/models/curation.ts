@@ -1,4 +1,5 @@
 import { ObjectId } from "mongodb";
+import Recipe from "./recipe";
 
 
 export default class Curation {
@@ -8,7 +9,8 @@ export default class Curation {
     public Description: string,
     recipe_IDs: (ObjectId|string)[],
     // public Owner_ID: string, //needed?
-    public id?: ObjectId
+    public _id?: ObjectId,
+    public Recipes?: Recipe[]
   ) {
     if(Name === ""){
       throw new Error("Name cannot be empty");

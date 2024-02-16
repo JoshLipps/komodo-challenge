@@ -9,6 +9,6 @@ export default class Recipe {
     public Author: string,
     public Ingredients: string[],
     public Method: string[],
-    public id?: ObjectId
+    public _id?: ObjectId
   ) { }
 }
