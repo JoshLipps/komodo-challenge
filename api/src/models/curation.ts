@@ -2,11 +2,29 @@ import { ObjectId } from "mongodb";
 
 
 export default class Curation {
-    constructor(
-        public Recipe_IDs: ObjectId[],
-        public Name: string,
-        public Description: string,
-        public Owner_ID: string, //needed?
-        public id?: ObjectId
-    ) {}
+  public Recipe_IDs: ObjectId[];
+  constructor(
+    public Name: string,
+    public Description: string,
+    recipe_IDs: (ObjectId|string)[],
+    // public Owner_ID: string, //needed?
+    public id?: ObjectId
+  ) {
+    if(Name === ""){
+      throw new Error("Name cannot be empty");
+    }
+    if(recipe_IDs instanceof Array === false){
+      this.Recipe_IDs = [];
+    } else {
+      this.Recipe_IDs = recipe_IDs.map((id) => {
+        if(id instanceof ObjectId){
+          return id;
+        } else if(ObjectId.isValid(id) === true){
+          return new ObjectId(id);
+        } else {
+          throw new Error("Invalid recipe id");
+        }
+      });
+    }
+  }
 }

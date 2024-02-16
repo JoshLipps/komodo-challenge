@@ -12,26 +12,26 @@ export const recipeRouter = express.Router();
 recipeRouter.use(express.json());
 // GET (LIST)
 recipeRouter.get("/", async (_req: Request, res: Response) => {
-    try {
-       const recipe = (await collections.recipe.find({}).toArray()) as Recipe[];
+  try {
+    const recipe = (await collections.recipe.find({}).toArray()) as Recipe[];
 
-        res.status(200).send(recipe);
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
+    res.status(200).send(recipe);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 });
 // POST -  this endpoint is overloaded to just load all the recipes
 recipeRouter.post("/", async (_req: Request, res: Response) => {
-    try {
-        for (const recipe of recipes) {
-            await collections.recipe.insertOne(recipe);
-        }
-        res.status(200).send({
-            message: "Successfully loaded all recipes"
-        });
-    } catch (error) {
-        res.status(500).send(error.message);
+  try {
+    for (const recipe of recipes) {
+      await collections.recipe.insertOne(recipe);
     }
+    res.status(200).send({
+      message: "Successfully loaded all recipes"
+    });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 });
 // PUT
 
