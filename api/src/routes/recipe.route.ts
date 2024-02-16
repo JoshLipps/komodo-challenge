@@ -1,6 +1,5 @@
 // External Dependencies
 import express, { Request, Response } from "express";
-import { ObjectId } from "mongodb";
 import { collections } from "../services/database.service.js";
 import Recipe from "../models/recipe.js";
 

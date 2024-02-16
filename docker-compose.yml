@@ -7,12 +7,11 @@ services:
     build: ./api
     restart: always
     ports:
-      - "80:3000"
+      - 80:5000
     depends_on:
       - mongo
     environment:
-      PORT: ${PORT:-3000},
-      DB_CONN_STRING: ${DB_CONN_STRING:-mongodb://root:example@mongo:27017/},
+      DB_CONN_STRING: ${DB_CONN_STRING:-mongodb://mongo:27017/},
       DB_NAME: ${DB_NAME:-challange},
       RECIPE_COLLECTION_NAME: ${RECIPE_COLLECTION_NAME:-recipe},
       CURATION_COLLECTION_NAME: ${CURATION_COLLECTION_NAME:-curation},
@@ -37,8 +36,8 @@ services:
       # MONGO_INITDB_ROOT_PASSWORD: example
       # MONGO_INITDB_DATABASE: ${DB_NAME:-challange}
     # for local development
-    # ports:
-    #   - "27017:27017"
+    ports:
+      - "27017:27017"
 
     # volumes:
     #  - ./db:/docker-entrypoint-initdb.d/:ro
@@ -53,6 +52,6 @@ services:
     environment:
       # ME_CONFIG_MONGODB_ADMINUSERNAME: root
       # ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: ${DB_CONN_STRING:-mongodb://root:example@mongo:27017/}
+      ME_CONFIG_MONGODB_URL: ${DB_CONN_STRING:-mongodb://mongo:27017/}
     networks:
      - internal-network
