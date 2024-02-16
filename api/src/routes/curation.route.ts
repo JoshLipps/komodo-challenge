@@ -3,15 +3,10 @@ import express, { Request, Response } from "express";
 import { ObjectId } from "mongodb";
 import { collections } from "../services/database.service.js";
 import Curation from "../models/curation.js";
-import * as dotenv from "dotenv";
 
 // Global Config
 export const curationRouter = express.Router();
 
-dotenv.config();
-const {
-  RECIPE_COLLECTION_NAME,
-} = process.env;
 
 curationRouter.use(express.json());
 // GET (LIST)
@@ -22,7 +17,7 @@ curationRouter.get("/", async (_req: Request, res: Response) => {
     const curation = (await collections.curation.aggregate([
       {
         $lookup: {
-          from: RECIPE_COLLECTION_NAME,
+          from: collections.recipe.collectionName,
           localField: "Recipe_IDs",
           foreignField: "_id",
           as: "Recipes"
