@@ -8,6 +8,8 @@ import Recipes from './routes/recipes';
 import Curations from './routes/curations';
 
 const Container = styled.div`
+  /* background-color: hsla(220, 4.2%, 13.9%, 1.000); */
+  /* background-image: linear-gradient(180.00deg, hsla(220, 4.2%, 13.9%, 1.000) 0%, hsla(220, 4.9%, 12%, 1.000) 100%); */
 `
 
 const router = createBrowserRouter([
